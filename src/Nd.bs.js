@@ -4,5 +4,8 @@
 
 var Events = 0;
 
+var Stream = 0;
+
 exports.Events = Events;
+exports.Stream = Stream;
 /* No side effect */
