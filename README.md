@@ -1,19 +1,19 @@
-# bs-node
+# bs-nd
 
 Node bindings for BuckleScript
 
 # Installation
 
 ```
-npm install --save @banacorn/bs-node
+npm install --save @banacorn/bs-nd
 ```
 
-Then add `@banacorn/bs-node` to `bs-dependencies` in your `bsconfig.json`:
+Then add `@banacorn/bs-nd` to `bs-dependencies` in your `bsconfig.json`:
 
 ```
 {
   ...
-  "bs-dependencies": ["@@banacorn/bs-node"]
+  "bs-dependencies": ["@@banacorn/bs-nd"]
 }
 ```
 
