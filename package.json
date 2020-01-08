@@ -1,5 +1,5 @@
 {
-  "name": "bs-node",
+  "name": "bs-nd",
   "version": "0.1.0",
   "description": "Node bindings for BuckleScript",
   "main": "index.js",
