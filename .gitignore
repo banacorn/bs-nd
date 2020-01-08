@@ -1,3 +1,10 @@
+lib/
+node_modules/
+.merlin
+.bsb.lock
+package-lock.json
+
+
 # Logs
 logs
 *.log

@@ -1,0 +1,30 @@
+{
+  "name": "bs-node",
+  "version": "0.1.0",
+  "description": "Node bindings for BuckleScript",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bs-platform": "^6.2.1"
+  },
+  "scripts": {
+    "start": "bsb -make-world -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/banacorn/bs-node.git"
+  },
+  "keywords": [
+    "reason",
+    "bucklescript",
+    "nodejs",
+    "package",
+    "bindings"
+  ],
+  "author": "banacorn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/banacorn/bs-node/issues"
+  },
+  "homepage": "https://github.com/banacorn/bs-node#readme"
+}
