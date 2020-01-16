@@ -20,13 +20,13 @@ type execOption = {
   [@bs.optional]
   encoding: string,
   [@bs.optional]
-  shell: string,
+  shell: [ | `Str(string) | `Bool(bool)],
   [@bs.optional]
   timeout: int,
   [@bs.optional]
   maxBuffer: int,
   [@bs.optional]
-  killSignal: string,
+  killSignal: [ | `Str(string) | `Int(int)],
   [@bs.optional]
   uid: int,
   [@bs.optional]
@@ -59,7 +59,7 @@ type execFileOption = {
   [@bs.optional]
   maxBuffer: int,
   [@bs.optional]
-  killSignal: string,
+  killSignal: [ | `Str(string) | `Int(int)],
   [@bs.optional]
   uid: int,
   [@bs.optional]
@@ -69,7 +69,7 @@ type execFileOption = {
   [@bs.optional]
   windowsVerbatimArguments: bool,
   [@bs.optional]
-  shell: string,
+  shell: [ | `Str(string) | `Bool(bool)],
 };
 
 [@bs.module "child_process"]
@@ -97,7 +97,7 @@ type forkOption = {
   [@bs.optional]
   silent: bool,
   [@bs.optional]
-  stdio: array([ | `Str(string) | `Int(int)]),
+  stdio: [ | `Str(string) | `Array(array(Js.nullable(string)))],
   [@bs.optional]
   windowsVerbatimArguments: bool,
   [@bs.optional]
@@ -124,7 +124,7 @@ type spawnOption = {
   [@bs.optional]
   argv0: string,
   [@bs.optional]
-  stdio: array([ | `Str(string) | `Int(int)]),
+  stdio: [ | `Str(string) | `Array(array(Js.nullable(string)))],
   [@bs.optional]
   detatched: bool,
   [@bs.optional]
@@ -132,7 +132,7 @@ type spawnOption = {
   [@bs.optional]
   gid: int,
   [@bs.optional]
-  shell: string,
+  shell: [ | `Str(string) | `Bool(bool)],
   [@bs.optional]
   windowsVerbatimArguments: bool,
   [@bs.optional]
@@ -155,7 +155,7 @@ type execFileSyncOption = {
   [@bs.optional]
   input: Node.Buffer.t,
   [@bs.optional]
-  stdio: array([ | `Str(string) | `Int(int)]),
+  stdio: [ | `Str(string) | `Array(array(Js.nullable(string)))],
   [@bs.optional]
   env: Js.t({.}),
   [@bs.optional]
@@ -165,7 +165,7 @@ type execFileSyncOption = {
   [@bs.optional]
   timeout: int,
   [@bs.optional]
-  killSignal: string,
+  killSignal: [ | `Str(string) | `Int(int)],
   [@bs.optional]
   maxBuffer: int,
   [@bs.optional]
@@ -173,7 +173,7 @@ type execFileSyncOption = {
   [@bs.optional]
   windowsHide: bool,
   [@bs.optional]
-  shell: string,
+  shell: [ | `Str(string) | `Bool(bool)],
 };
 
 [@bs.module "child_process"]
@@ -195,11 +195,11 @@ type execSyncOption = {
   [@bs.optional]
   input: Node.Buffer.t,
   [@bs.optional]
-  stdio: array([ | `Str(string) | `Int(int)]),
+  stdio: [ | `Str(string) | `Array(array(Js.nullable(string)))],
   [@bs.optional]
   env: Js.t({.}),
   [@bs.optional]
-  shell: string,
+  shell: [ | `Str(string) | `Bool(bool)],
   [@bs.optional]
   uid: int,
   [@bs.optional]
@@ -207,7 +207,7 @@ type execSyncOption = {
   [@bs.optional]
   timeout: int,
   [@bs.optional]
-  killSignal: string,
+  killSignal: [ | `Str(string) | `Int(int)],
   [@bs.optional]
   maxBuffer: int,
   [@bs.optional]
@@ -234,7 +234,7 @@ type spawnSyncOption = {
   [@bs.optional]
   argv0: string,
   [@bs.optional]
-  stdio: array([ | `Str(string) | `Int(int)]),
+  stdio: [ | `Str(string) | `Array(array(Js.nullable(string)))],
   [@bs.optional]
   env: Js.t({.}),
   [@bs.optional]
@@ -244,13 +244,13 @@ type spawnSyncOption = {
   [@bs.optional]
   timeout: int,
   [@bs.optional]
-  killSignal: string,
+  killSignal: [ | `Str(string) | `Int(int)],
   [@bs.optional]
   maxBuffer: int,
   [@bs.optional]
   encoding: string,
   [@bs.optional]
-  shell: string,
+  shell: [ | `Str(string) | `Bool(bool)],
   [@bs.optional]
   windowsVerbatimArguments: bool,
   [@bs.optional]
