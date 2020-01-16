@@ -2,7 +2,16 @@
 'use strict';
 
 
+var Shell = { };
+
+var KillSignal = { };
+
+var Stdio = { };
+
 var Stream = 0;
 
 exports.Stream = Stream;
+exports.Shell = Shell;
+exports.KillSignal = KillSignal;
+exports.Stdio = Stdio;
 /* No side effect */
