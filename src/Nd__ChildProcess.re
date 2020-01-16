@@ -10,42 +10,66 @@ type t;
 
 type execCallback =
   (Js.Nullable.t(Js.Exn.t), Node.Buffer.t, Node.Buffer.t) => unit;
+
+[@bs.deriving abstract]
 type execOption = {
-  .
-  "cwd": string,
-  "env": Js.t({.}),
-  "encoding": string,
-  "shell": string,
-  "timeout": int,
-  "maxBuffer": int,
-  "killSignal": string,
-  "uid": int,
-  "gid": int,
-  "windowsHide": bool,
+  [@bs.optional]
+  cwd: string,
+  [@bs.optional]
+  env: Js.t({.}),
+  [@bs.optional]
+  encoding: string,
+  [@bs.optional]
+  shell: string,
+  [@bs.optional]
+  timeout: int,
+  [@bs.optional]
+  maxBuffer: int,
+  [@bs.optional]
+  killSignal: string,
+  [@bs.optional]
+  uid: int,
+  [@bs.optional]
+  gid: int,
+  [@bs.optional]
+  windowsHide: bool,
 };
 
 [@bs.module "child_process"]
 external exec: (string, execCallback) => t = "exec";
 [@bs.module "child_process"]
 external exec_: (string, execOption, execCallback) => t = "exec";
+[@bs.module "child_process"]
+external exec': (string, execOption, Js.t({.})) => t = "exec";
 
 //
 // child_process.execFile(file[, args][, options][, callback])
 //
 
+[@bs.deriving abstract]
 type execFileOption = {
-  .
-  "cwd": string,
-  "env": Js.t({.}),
-  "encoding": string,
-  "timeout": int,
-  "maxBuffer": int,
-  "killSignal": string,
-  "uid": int,
-  "gid": int,
-  "windowsHide": bool,
-  "windowsVerbatimArguments": bool,
-  "shell": string,
+  [@bs.optional]
+  cwd: string,
+  [@bs.optional]
+  env: Js.t({.}),
+  [@bs.optional]
+  encoding: string,
+  [@bs.optional]
+  timeout: int,
+  [@bs.optional]
+  maxBuffer: int,
+  [@bs.optional]
+  killSignal: string,
+  [@bs.optional]
+  uid: int,
+  [@bs.optional]
+  gid: int,
+  [@bs.optional]
+  windowsHide: bool,
+  [@bs.optional]
+  windowsVerbatimArguments: bool,
+  [@bs.optional]
+  shell: string,
 };
 
 [@bs.module "child_process"]
@@ -58,18 +82,28 @@ external execFile_: (string, array(string), execFileOption, execCallback) => t =
 // child_process.fork(modulePath[, args][, options])
 //
 
+[@bs.deriving abstract]
 type forkOption = {
-  .
-  "cwd": string,
-  "detatched": bool,
-  "env": Js.t({.}),
-  "execPath": string,
-  "execArgv": array(string),
-  "silent": bool,
-  "stdio": array([ | `Str(string) | `Int(int)]),
-  "windowsVerbatimArguments": bool,
-  "uid": int,
-  "gid": int,
+  [@bs.optional]
+  cwd: string,
+  [@bs.optional]
+  detatched: bool,
+  [@bs.optional]
+  env: Js.t({.}),
+  [@bs.optional]
+  execPath: string,
+  [@bs.optional]
+  execArgv: array(string),
+  [@bs.optional]
+  silent: bool,
+  [@bs.optional]
+  stdio: array([ | `Str(string) | `Int(int)]),
+  [@bs.optional]
+  windowsVerbatimArguments: bool,
+  [@bs.optional]
+  uid: int,
+  [@bs.optional]
+  gid: int,
 };
 
 [@bs.module "child_process"]
@@ -81,18 +115,28 @@ external fork_: (string, array(string), forkOption) => t = "fork";
 // child_process.spawn(command[, args][, options])
 //
 
+[@bs.deriving abstract]
 type spawnOption = {
-  .
-  "cwd": string,
-  "env": Js.t({.}),
-  "argv0": string,
-  "stdio": array([ | `Str(string) | `Int(int)]),
-  "detatched": bool,
-  "uid": int,
-  "gid": int,
-  "shell": string,
-  "windowsVerbatimArguments": bool,
-  "windowsHide": bool,
+  [@bs.optional]
+  cwd: string,
+  [@bs.optional]
+  env: Js.t({.}),
+  [@bs.optional]
+  argv0: string,
+  [@bs.optional]
+  stdio: array([ | `Str(string) | `Int(int)]),
+  [@bs.optional]
+  detatched: bool,
+  [@bs.optional]
+  uid: int,
+  [@bs.optional]
+  gid: int,
+  [@bs.optional]
+  shell: string,
+  [@bs.optional]
+  windowsVerbatimArguments: bool,
+  [@bs.optional]
+  windowsHide: bool,
 };
 
 [@bs.module "child_process"]
@@ -104,20 +148,32 @@ external spawn_: (string, array(string), spawnOption) => t = "spawn";
 // child_process.execFileSync(file[, args][, options])
 //
 
+[@bs.deriving abstract]
 type execFileSyncOption = {
-  .
-  "cwd": string,
-  "input": Node.Buffer.t,
-  "stdio": array([ | `Str(string) | `Int(int)]),
-  "env": Js.t({.}),
-  "uid": int,
-  "gid": int,
-  "timeout": int,
-  "killSignal": string,
-  "maxBuffer": int,
-  "encoding": string,
-  "windowsHide": bool,
-  "shell": string,
+  [@bs.optional]
+  cwd: string,
+  [@bs.optional]
+  input: Node.Buffer.t,
+  [@bs.optional]
+  stdio: array([ | `Str(string) | `Int(int)]),
+  [@bs.optional]
+  env: Js.t({.}),
+  [@bs.optional]
+  uid: int,
+  [@bs.optional]
+  gid: int,
+  [@bs.optional]
+  timeout: int,
+  [@bs.optional]
+  killSignal: string,
+  [@bs.optional]
+  maxBuffer: int,
+  [@bs.optional]
+  encoding: string,
+  [@bs.optional]
+  windowsHide: bool,
+  [@bs.optional]
+  shell: string,
 };
 
 [@bs.module "child_process"]
@@ -132,20 +188,32 @@ external execFileSync_:
 // child_process.execSync(command[, options])
 //
 
+[@bs.deriving abstract]
 type execSyncOption = {
-  .
-  "cwd": string,
-  "input": Node.Buffer.t,
-  "stdio": array([ | `Str(string) | `Int(int)]),
-  "env": Js.t({.}),
-  "shell": string,
-  "uid": int,
-  "gid": int,
-  "timeout": int,
-  "killSignal": string,
-  "maxBuffer": int,
-  "encoding": string,
-  "windowsHide": bool,
+  [@bs.optional]
+  cwd: string,
+  [@bs.optional]
+  input: Node.Buffer.t,
+  [@bs.optional]
+  stdio: array([ | `Str(string) | `Int(int)]),
+  [@bs.optional]
+  env: Js.t({.}),
+  [@bs.optional]
+  shell: string,
+  [@bs.optional]
+  uid: int,
+  [@bs.optional]
+  gid: int,
+  [@bs.optional]
+  timeout: int,
+  [@bs.optional]
+  killSignal: string,
+  [@bs.optional]
+  maxBuffer: int,
+  [@bs.optional]
+  encoding: string,
+  [@bs.optional]
+  windowsHide: bool,
 };
 
 [@bs.module "child_process"]
@@ -157,22 +225,36 @@ external execSync_: (string, execSyncOption) => Node.Buffer.t = "execSync";
 // child_process.spawnSync(command[, args][, options])
 //
 
+[@bs.deriving abstract]
 type spawnSyncOption = {
-  .
-  "cwd": string,
-  "input": Node.Buffer.t,
-  "argv0": string,
-  "stdio": array([ | `Str(string) | `Int(int)]),
-  "env": Js.t({.}),
-  "uid": int,
-  "gid": int,
-  "timeout": int,
-  "killSignal": string,
-  "maxBuffer": int,
-  "encoding": string,
-  "shell": string,
-  "windowsVerbatimArguments": bool,
-  "windowsHide": bool,
+  [@bs.optional]
+  cwd: string,
+  [@bs.optional]
+  input: Node.Buffer.t,
+  [@bs.optional]
+  argv0: string,
+  [@bs.optional]
+  stdio: array([ | `Str(string) | `Int(int)]),
+  [@bs.optional]
+  env: Js.t({.}),
+  [@bs.optional]
+  uid: int,
+  [@bs.optional]
+  gid: int,
+  [@bs.optional]
+  timeout: int,
+  [@bs.optional]
+  killSignal: string,
+  [@bs.optional]
+  maxBuffer: int,
+  [@bs.optional]
+  encoding: string,
+  [@bs.optional]
+  shell: string,
+  [@bs.optional]
+  windowsVerbatimArguments: bool,
+  [@bs.optional]
+  windowsHide: bool,
 };
 
 type spawnSyncResult = {
