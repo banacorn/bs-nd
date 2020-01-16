@@ -2,10 +2,16 @@
 'use strict';
 
 
+var ChildProcess = 0;
+
 var Events = 0;
+
+var Net = 0;
 
 var Stream = 0;
 
+exports.ChildProcess = ChildProcess;
 exports.Events = Events;
+exports.Net = Net;
 exports.Stream = Stream;
 /* No side effect */
